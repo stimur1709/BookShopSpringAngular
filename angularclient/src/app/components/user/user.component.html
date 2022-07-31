@@ -1,0 +1,15 @@
+<div class="py-4 px-6 border rounded flex items-center flex-col mb-2">
+  <h2 class="mb-2 text-md text-center">{{ user.id + ". " + user.name }}</h2>
+
+  <button class="border py-0.5 px-1 rounded"
+          [ngClass]="{
+          'bg-yellow-400': !details,
+          'bg-blue-400': details
+          }"
+          (click)="details = !details">{{ details ? 'Hide' : 'Show'}} Details
+  </button>
+
+  <div *ngIf="details">
+    <p>{{ user.email }}</p>
+  </div>
+</div>

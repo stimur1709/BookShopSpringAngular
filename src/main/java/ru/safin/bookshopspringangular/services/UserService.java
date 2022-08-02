@@ -2,6 +2,7 @@ package ru.safin.bookshopspringangular.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import ru.safin.bookshopspringangular.models.Book;
 import ru.safin.bookshopspringangular.models.User;
 import ru.safin.bookshopspringangular.repositories.UserRepository;
 
@@ -23,5 +24,9 @@ public class UserService {
 
     public void saveUser(User user) {
         usersRepository.save(user);
+    }
+
+    public List<Book> getBooksByUser(int id) {
+        return usersRepository.findById(id).map(User::getBooks).orElse(null);
     }
 }

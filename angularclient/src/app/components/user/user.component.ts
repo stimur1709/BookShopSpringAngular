@@ -7,6 +7,5 @@ import {IUser} from "../../model/IUser";
 })
 export class UserComponent{
   @Input() user: IUser
-
   details = false
 }

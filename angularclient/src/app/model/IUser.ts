@@ -1,5 +1,8 @@
+import {IBook} from "./IBook";
+
 export interface IUser {
   id?: number
-  name: String
-  email: String
+  name: string
+  email: string
+  books?: IBook[]
 }

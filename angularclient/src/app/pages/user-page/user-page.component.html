@@ -1,0 +1,11 @@
+<h1 class="font-bold mb-2 text-center text-lg">{{ title | titlecase }}</h1>
+<input type="text" class="mb-2 border py-2 px-4 w-full" placeholder="Search name..." [(ngModel)]="searchName">
+<p *ngIf="loading" class="text-center text-lg">Loading...</p>
+<div *ngIf="users$ | async as users">
+  <app-user *ngFor="let user of users | filterName:searchName" [user]="user"></app-user>
+</div>
+<app-modal *ngIf="modalService.isVisible$ | async" title="Create new user">
+  <app-create-user></app-create-user>
+</app-modal>
+<button class="rounded-full bg-red-700 text-lg text-white fixed right-5 bottom-5 py-2 px-4"
+        (click)="modalService.open()">+</button>

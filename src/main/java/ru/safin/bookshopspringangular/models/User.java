@@ -1,11 +1,12 @@
 package ru.safin.bookshopspringangular.models;
 
-import lombok.AllArgsConstructor;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Getter
@@ -16,8 +17,16 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
+    @Column(columnDefinition = "VARCHAR(255) NOT NULL")
     private String name;
+
+    @Column(columnDefinition = "VARCHAR(255) NOT NULL")
     private String email;
+
+    @OneToMany(mappedBy = "user")
+    @JsonManagedReference
+    private List<Book> books;
 
     public User(String name, String email) {
         this.name = name;

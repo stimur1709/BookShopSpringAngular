@@ -11,6 +11,10 @@ import { FilterNamePipe } from './pipes/filter-name.pipe';
 import { ModalComponent } from './components/modal/modal.component';
 import { CreateUserComponent } from './components/create-user/create-user.component';
 import { FocusDirective } from './directives/focus.directive';
+import { UserPageComponent } from './pages/user-page/user-page.component';
+import { BookPageComponent } from './pages/book-page/book-page.component';
+import { NavigationComponent } from './components/navigation/navigation.component';
+import { BookComponent } from './components/book/book.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +24,11 @@ import { FocusDirective } from './directives/focus.directive';
     FilterNamePipe,
     ModalComponent,
     CreateUserComponent,
-    FocusDirective
+    FocusDirective,
+    UserPageComponent,
+    BookPageComponent,
+    NavigationComponent,
+    BookComponent
   ],
   imports: [
     BrowserModule,

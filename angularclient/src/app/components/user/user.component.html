@@ -1,5 +1,5 @@
 <div class="py-4 px-6 border rounded flex items-center flex-col mb-2">
-  <h2 class="mb-2 text-md text-center">{{ user.id + ". " + user.name }}</h2>
+  <h2 class="mb-2 text-md text-center">{{ user.id + ". " + user.name + " - " + user.email}}</h2>
 
   <button class="border py-0.5 px-1 rounded"
           [ngClass]="{
@@ -10,6 +10,6 @@
   </button>
 
   <div *ngIf="details">
-    <p>{{ user.email }}</p>
+        <p *ngFor="let book of user.books">{{ book.title }}<span> - {{ book.price}} руб</span></p>
   </div>
 </div>
